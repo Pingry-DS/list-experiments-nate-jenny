@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Experiments {
 
   public static void main(String[] args) {
+	  
   
     //TODO Check command line for number of iterations
     int iterations = 10000;
@@ -64,7 +65,11 @@ public class Experiments {
    * @return A reference to the constructed List
    */
   public static List<String> TailInsert(int times, String payload) {
-  
+	List<String> li = new ArrayList<String>();
+	for(int i=0; i<times; i++){
+		li.add(payload);
+	}
+	return li;
   }
   
   
@@ -78,6 +83,7 @@ public class Experiments {
    * @param payload The actual string to be inserted
    * @return A reference to the constructed List
    */
+   
   public static List<String> MidpointInsert(int times, String payload) {
     List<T> l = new ArrayList<T>();
     for(int i = 0; i < times; i++) {
