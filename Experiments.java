@@ -53,8 +53,15 @@ public class Experiments {
    * @param payload The actual string to be inserted
    * @return A reference to the constructed List
    */
-  public static List<String> HeadInsert(int times, String payload) {
-  
+  public static List<String> HeadInsert(int times, String payload) 
+  {
+	List<String> input = new ArrayList<String>();
+	for(int i = 0; i < times; i++)
+	{
+		input.add(0, payload); 
+	} 
+	
+	return input;
   }
   
   /**
@@ -64,12 +71,14 @@ public class Experiments {
    * @param payload The actual string to be inserted
    * @return A reference to the constructed List
    */
+
   public static List<String> TailInsert(int times, String payload) {
 	List<String> li = new ArrayList<String>();
 	for(int i=0; i<times; i++){
 		li.add(payload);
 	}
 	return li;
+
   }
   
   
