@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Experiments {
 
   public static void main(String[] args) {
-	  
-  
+	
+	
     //TODO Check command line for number of iterations
     int iterations = 10000;
     
@@ -42,7 +42,7 @@ public class Experiments {
     SortedInsert(iterations);
     end = System.nanoTime();
     System.out.println("Sorted insertion took " + (end - start)/1000000.0 + "ms.\n");
-  
+    
   }
   
   /**
@@ -111,7 +111,21 @@ public class Experiments {
    * @return A reference to the constructed List
    */
   public static List<String> AlternateInsert(int times, String payload) {
-  
+	//you can test this or edit it if you want
+	List<String> l = new ArrayList<String>();
+	boolean alt = true;
+	while(times>0){
+		for(int i=0; times>0 && i<=l.size(); i++){
+			if(alt){
+				l.add(i, payload);
+				times--;
+			}
+			if(i==l.size())
+				i = 0;
+			alt = !alt;
+		}
+	}
+	return l;
   }
   
   //TODO Use a comparator in this method
