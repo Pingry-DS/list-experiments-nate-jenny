@@ -28,6 +28,7 @@ public class Experiments {
     end = System.nanoTime();
     System.out.println("Insertion at midpoint took " + (end - start)/1000000.0 + "ms.\n");
     
+	//?
     start = end;
     AlternateInsert(iterations, "Hello");
     end = System.nanoTime();
@@ -37,12 +38,12 @@ public class Experiments {
     AlternateInsert(iterations, "Hello");
     end = System.nanoTime();
     System.out.println("Alternate insertion took " + (end - start)/1000000.0 + "ms.\n");
-    
+    /*
     start = end;
     SortedInsert(iterations);
     end = System.nanoTime();
     System.out.println("Sorted insertion took " + (end - start)/1000000.0 + "ms.\n");
-    
+    */
   }
   
   /**
@@ -94,7 +95,7 @@ public class Experiments {
    */
    
   public static List<String> MidpointInsert(int times, String payload) {
-    List<T> l = new ArrayList<T>();
+    List<String> l = new ArrayList<String>();
     for(int i = 0; i < times; i++) {
       l.add(l.size() / 2, payload);
     }
@@ -111,7 +112,6 @@ public class Experiments {
    * @return A reference to the constructed List
    */
   public static List<String> AlternateInsert(int times, String payload) {
-	//you can test this or edit it if you want
 	List<String> l = new ArrayList<String>();
 	boolean alt = true;
 	while(times>0){
