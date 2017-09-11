@@ -7,7 +7,7 @@ public class Experiments {
 	
 	
     //TODO Check command line for number of iterations
-    int iterations = 1000;
+    int iterations = 10000;
     
     // Keep track of the run time for each call
     long start = System.nanoTime();
@@ -48,9 +48,9 @@ public class Experiments {
    * @param payload The actual string to be inserted
    * @return A reference to the constructed List
    */
-  public static List<String> HeadInsert(int times, String payload) 
+  public static <T> List<T> HeadInsert(int times, T payload) 
   {
-	List<String> input = new ArrayList<String>();
+	List<T> input = new ArrayList<T>();
 	for(int i = 0; i < times; i++)
 	{
 		input.add(0, payload); 
@@ -67,8 +67,8 @@ public class Experiments {
    * @return A reference to the constructed List
    */
 
-  public static List<String> TailInsert(int times, String payload) {
-	List<String> li = new ArrayList<String>();
+  public static <T> List<T> TailInsert(int times, T payload) {
+	List<T> li = new ArrayList<T>();
 	for(int i=0; i<times; i++){
 		li.add(payload);
 	}
@@ -88,8 +88,8 @@ public class Experiments {
    * @return A reference to the constructed List
    */
    
-  public static List<String> MidpointInsert(int times, String payload) {
-    List<String> l = new ArrayList<String>();
+  public static <T> List<T> MidpointInsert(int times, T payload) {
+    List<T> l = new ArrayList<T>();
     for(int i = 0; i < times; i++) {
       l.add(l.size() / 2, payload);
     }
@@ -105,8 +105,8 @@ public class Experiments {
    * @param payload The actual string to be inserted
    * @return A reference to the constructed List
    */
-  public static List<String> AlternateInsert(int times, String payload) {
-	List<String> l = new ArrayList<String>();
+  public static <T> List<T> AlternateInsert(int times, T payload) {
+	List<T> l = new ArrayList<T>();
 	boolean alt = true;
 	while(times>0){
 		for(int i=0; times>0 && i<=l.size(); i++){
