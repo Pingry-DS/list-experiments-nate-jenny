@@ -7,7 +7,7 @@ public class Experiments {
 	
 	
     //TODO Check command line for number of iterations
-    int iterations = 10000;
+    int iterations = 1000;
     
     // Keep track of the run time for each call
     long start = System.nanoTime();
