@@ -28,12 +28,6 @@ public class Experiments {
     end = System.nanoTime();
     System.out.println("Insertion at midpoint took " + (end - start)/1000000.0 + "ms.\n");
     
-	//?
-    start = end;
-    AlternateInsert(iterations, "Hello");
-    end = System.nanoTime();
-    System.out.println("Insertion at tail took " + (end - start)/1000000.0 + "ms.\n");
-    
     start = end;
     AlternateInsert(iterations, "Hello");
     end = System.nanoTime();
