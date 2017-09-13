@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Experiments {
 
@@ -7,7 +8,7 @@ public class Experiments {
 	
 	
     //TODO Check command line for number of iterations
-    int iterations = 10000;
+    int iterations = 500;
     
     // Keep track of the run time for each call
     long start = System.nanoTime();
@@ -129,10 +130,29 @@ public class Experiments {
    * in sorted order.
    *
    * @param items The items to be inserted. Given in no particular order.
+   * @param c The comparator used to sort the elements
    * @return A reference to the constructed List
    */
-  public static List<String> SortedInsert(List<String> items) {
-    return null;
+  public static <T> List<T> SortedInsert(List<T> items, Comparator<T> c) 
+  {
+	List<T> l = new ArrayList<T>();
+	
+	int index = 0;
+	while(items.size()>0)
+	{
+		T smallest = items.get(0);
+		for(int j = 1; j < items.size(); j++)
+		{
+			if(c.compare(items.get(j), smallest)<0)
+			{
+				smallest = items.get(j);
+				index = j;
+			}
+		}
+		items.remove(index);
+		l.add(smallest);
+	}
+	return l;
   }
 
 }
