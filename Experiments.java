@@ -33,12 +33,20 @@ public class Experiments {
     AlternateInsert(iterations, "Hello");
     end = System.nanoTime();
     System.out.println("Alternate insertion took " + (end - start)/1000000.0 + "ms.\n");
+	
+	start = end;
+    ReverseAlternateInsert(iterations, "Hello");
+    end = System.nanoTime();
+    System.out.println("Reverse alternate insertion took " + (end - start)/1000000.0 + "ms.\n");
     /*
     start = end;
     SortedInsert(iterations);
     end = System.nanoTime();
     System.out.println("Sorted insertion took " + (end - start)/1000000.0 + "ms.\n");
     */
+	
+	
+	
   }
   
   /**
@@ -97,7 +105,6 @@ public class Experiments {
     return l;
   }
   
-  //TODO Maybe make a ReverseAlternateInsert too.
   /**
    * Creates a List and inserts the given payload the specified number of times as if the List
    * items were arranged in a circle with new items inserted after every other existing item.
@@ -121,6 +128,29 @@ public class Experiments {
 		}
 	}
 	return l;
+  }
+  
+  /**
+   * Creates a List and inserts the given payload the specified number of times as if the List
+   * items were arranged in a circle with the new items inserted before every other existing item.
+   *
+   * @param times How many times the payload should be inserted
+   * @param payload The object to be inserted
+   * @return a reference to the constructed List
+   */
+  public static <T> List<T> ReverseAlternateInsert(int times, T payload){
+	  List<T> l = new ArrayList<T>();
+	  if(times>0){
+		  l.add(payload);
+		  times--;
+	  }
+	  while(times>0){
+		  for(int i=l.size()-1; times>0 && i>=0; i--){
+			  l.add(i, payload);
+			  times--;
+		  }
+	  }
+	  return l;
   }
   
   //TODO Use a comparator in this method
@@ -154,5 +184,6 @@ public class Experiments {
 	}
 	return l;
   }
+  //PLS TEST THIS
 
 }
